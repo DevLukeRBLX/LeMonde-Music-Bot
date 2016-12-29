@@ -744,7 +744,7 @@ class MusicBot(discord.Client):
                 return Response("No such command", delete_after=10)
 
         else:
-            helpmsg = "**Commands**\n```"
+            helpmsg = "**Commands**/n```"
             commands = []
 
             for att in dir(self):
@@ -752,10 +752,10 @@ class MusicBot(discord.Client):
                     command_name = att.replace('cmd_', '').lower()
                     commands.append("{}{}".format(self.config.command_prefix, command_name))
 
+            
             helpmsg += ", ".join(commands)
             helpmsg += "```"
-            helpmsg += "https://github.com/SexualRhinoceros/MusicBot/wiki/Commands-list"
-
+            helpmsg += "**Created By Dev_Luke**"
             return Response(helpmsg, reply=True, delete_after=60)
 
     async def cmd_blacklist(self, message, user_mentions, option, something):
@@ -772,7 +772,7 @@ class MusicBot(discord.Client):
 
         if option not in ['+', '-', 'add', 'remove']:
             raise exceptions.CommandError(
-                'Invalid option "%s" specified, use +, -, add, or remove' % option, expire_in=20
+                'Invalid option "%s" specified, use +, -, add, or remove bahahah lol ' % option, expire_in=20
             )
 
         for user in user_mentions.copy():
